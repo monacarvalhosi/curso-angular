@@ -1,0 +1,26 @@
+<div class="container element__center">
+  <h2>Listagem de Contatos</h2>
+  <div class="list__group">
+    <table>
+      <thead *ngIf="!flagListaVazia">
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>Idade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contato of listaContatos">
+          <td><a href="#">{{ contato.nome }}</a></td>
+          <td><span>{{ contato.telefone }}</span></td>
+          <td><span>{{ contato.idade }}</span></td>
+        </tr>
+        <tr *ngIf="flagListaVazia">
+          <span><b>Lista vazia</b></span>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button (click)="VoltarBtn()"> Voltar </button>
+</div>

@@ -1,0 +1,18 @@
+.container{
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  color: honeydew;
+  display: flexbox;
+}
+
+.element__center{
+  text-align: center;
+}
+
+.list__group{
+  display: grid;
+  align-self: center;
+  padding-right: 50px;
+  padding-left: 50px;
+  text-align: center;
+}
+

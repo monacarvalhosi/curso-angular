@@ -1,5 +1,6 @@
 .itens{
   color: red;
+  padding-inline-start: 0 !important;
 }
 
 
