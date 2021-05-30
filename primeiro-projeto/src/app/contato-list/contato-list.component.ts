@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IContato } from '../interface/icontato';
+import { ContatosService } from '../services/contatos.service';
 
 @Component({
   selector: 'app-contato-list',
@@ -8,20 +10,32 @@ import { IContato } from '../interface/icontato';
   styleUrls: ['./contato-list.component.css']
 })
 export class ContatoListComponent implements OnInit {
-  listaContatos: IContato[] = [];
+
+  contato = {} as IContato;
+  contatos: IContato[] = [];
   flagListaVazia: Boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private contatosService: ContatosService) { }
 
   ngOnInit(): void {
-    /*this.listaContatos = [
-      { codigo: 10, nome: 'Rafa', telefone: '99999-7721', idade: 20},
-      { codigo: 20, nome: 'Julio', telefone: '98888-7721', idade: 55},
-      { codigo: 10, nome: 'Tatiana', telefone: '94444-7721', idade: 28},
-    ]*/
+    this.getContatos();
+  }
 
-    if(this.listaContatos.length === 0) this.flagListaVazia = true;
+  getContatos(){
+    this.contatosService.getContatos().subscribe((contatos: IContato[]) =>{
+        this.contatos = contatos;
+      }
+    )
+  }
 
+  saveContato(form: NgForm){
+    /* id = 1*/
+    if(this.contato.id !== undefined){
+      this.contatosService.updateContato(this.contato).subscribe(() =>{
+          this.cleanForm(form);
+        }
+      )
+    }
   }
 
   VoltarBtn() {

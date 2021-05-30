@@ -1,5 +1,5 @@
 export interface IContato {
-  codigo: number;
+  id: number;
   nome: string;
   telefone: string;
   idade: number;

@@ -7,13 +7,18 @@
           <th>Nome</th>
           <th>Telefone</th>
           <th>Idade</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let contato of listaContatos">
-          <td><a href="#">{{ contato.nome }}</a></td>
-          <td><span>{{ contato.telefone }}</span></td>
-          <td><span>{{ contato.idade }}</span></td>
+        <tr *ngFor="let itemContato of contatos">
+          <td><a href="#">{{ itemContato.nome }}</a></td>
+          <td><span>{{ itemContato.telefone }}</span></td>
+          <td><span>{{ itemContato.idade }}</span></td>
+          <td>
+            <button type="button" (click)="editContato(itemContato)"> Editar </button>
+            <button type="button" (click)="deleteContato(itemContato)"> Deletar </button>
+          </td>
         </tr>
         <tr *ngIf="flagListaVazia">
           <span><b>Lista vazia</b></span>
@@ -23,4 +28,30 @@
   </div>
 
   <button (click)="VoltarBtn()"> Voltar </button>
+
+  <div>
+    <h5> Adicionar|Atualizar Contato</h5>
+    <div>
+      <form id="add-form" (ngSubmit)="saveContato(form)" #form="ngForm" >
+        <div>
+          <label for="nome"> Nome Completo </label>
+          <input id="nome" type="text" [(ngModel)]="contato.nome" name="nome"
+            #nome="ngModel" placeholder="Digite o nome">
+        </div>
+        <div>
+          <label for="telefone"> Telefone com DDD</label>
+          <input id="telefone" type="text" [(ngModel)]="contato.telefone" name="telefone"
+            #telefone="ngModel" placeholder="Digite o telefone">
+        </div>
+        <div>
+          <label for="idade"> Idade </label>
+          <input id="idade" type="text" [(ngModel)]="contato.idade" name="idade"
+            #idade="ngModel" placeholder="Digite sua idade">
+        </div>
+        <button type="submit"> Salvar </button>
+        <button type="reset" (click)="cleanForm(form)"> Cancelar </button>
+      </form>
+    </div>
+  </div>
+
 </div>

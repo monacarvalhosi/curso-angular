@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'
 
 import { appRoutes } from './rotas/app.routes'
@@ -11,6 +13,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { ContatoListComponent } from './contato-list/contato-list.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
+import { ContatosService } from './services/contatos.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,13 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    ContatosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
