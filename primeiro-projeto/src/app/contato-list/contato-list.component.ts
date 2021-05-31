@@ -35,7 +35,27 @@ export class ContatoListComponent implements OnInit {
           this.cleanForm(form);
         }
       )
+    } else {
+      this.contatosService.postContato(this.contato).subscribe(() =>{
+        this.cleanForm(form);
+      })
     }
+  }
+
+  deleteContato(contato: IContato){
+    this.contatosService.deleteContato(contato).subscribe(()=>{
+      this.getContatos();
+    })
+  }
+
+  editContato(contato: IContato){
+    this.contato = {...contato}
+  }
+
+  cleanForm(form: NgForm){
+    this.getContatos();
+    form.resetForm();
+    this.contato = {} as IContato;
   }
 
   VoltarBtn() {
