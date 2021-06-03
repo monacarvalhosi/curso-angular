@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="card-header text-center">
+    Pessoas
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Nome: {{ nomeFuncionaria }}</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  </div>
+  <div class="table-responsive-sm">
+    <table class="table">
+      <thead>
+        <tr appGrifarTexto corBackground='blue'>
+          <th>Nome Completo</th>
+          <th>Telefone</th>
+          <th>Estado Civil</th>
+          <th>Idade</th>
+          <th>E-mail</th>
+          <th>Endereço</th>
+          <th>Profissão</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let itemPessoa of pessoas">
+          <td><span>{{ itemPessoa.nomeCompleto }}</span></td>
+          <td><span>{{ itemPessoa.telefone }}</span></td>
+          <td><span>{{ itemPessoa.estadoCivil }}</span></td>
+          <td><span>{{ itemPessoa.idade }}</span></td>
+          <td><span>{{ itemPessoa.email }}</span></td>
+          <td><span>{{ itemPessoa.endereco }}</span></td>
+          <td><span>{{ itemPessoa.profissao }}</span></td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="editPessoa()"> Editar </button>
+            <button type="button" class="btn btn-warning" (click)="deletePessoa(itemPessoa)"> Deletar </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="card text-center">
+    <button type="button" class="btn btn-success" (click)="newPessoa()"> Adicionar </button>
+  </div>
+</div>

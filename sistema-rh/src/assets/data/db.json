@@ -1,0 +1,34 @@
+{
+  "pessoas": [
+    {
+      "id": 1,
+      "nomeCompleto": "Mauro Souza",
+      "idade": 18,
+      "telefone": "71987458454",
+      "email": "mauro.souza@gmail.com",
+      "endereco": "Rua A, casa 1. Bairro B. Salvador, Bahia",
+      "profissao": "Desenvolvedor .Net",
+      "estadoCivil": "solteiro"
+    },
+    {
+      "id": 2,
+      "nomeCompleto": "Luiz Silva",
+      "idade": 68,
+      "telefone": "71999958454",
+      "email": "luiz.silva@uol.com.br",
+      "endereco": "Rua B, casa 2. Bairro C. Salvador, Bahia",
+      "profissao": "Gerente",
+      "estadoCivil": "casado"
+    },
+    {
+      "id": 3,
+      "nomeCompleto": "Maria Genzerico",
+      "idade": 28,
+      "telefone": "71998858436",
+      "email": "maria.genzerico@bol.com.br",
+      "endereco": "Rua C, casa 3. Bairro D. Salvador, Bahia",
+      "profissao": "Gestor",
+      "estadoCivil": "casada"
+    }
+  ]
+}
