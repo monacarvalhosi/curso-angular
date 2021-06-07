@@ -7,4 +7,5 @@ export interface Pessoas {
   endereco: string;
   profissao: string;
   estadoCivil: string;
+  cpf: string;
 }

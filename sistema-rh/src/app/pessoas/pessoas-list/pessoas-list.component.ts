@@ -11,6 +11,10 @@ import { PessoasService } from '../services/pessoas.service';
 export class PessoasListComponent implements OnInit {
   nomeFuncionaria = "Maria Benitez";
   pessoas: Pessoas[] = [];
+  search = '';
+  items = ['caixa', 'lapis', 'leo', 'noite', 'sol', 'caixa'];
+  hoje = '2021-06-07';
+  preco = 19.90;
 
   constructor(private router: Router, private pessoasService: PessoasService) { }
 

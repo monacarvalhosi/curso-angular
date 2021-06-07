@@ -10,6 +10,8 @@ import { PessoasEditComponent } from './pessoas/pessoas-edit/pessoas-edit.compon
 import { PessoasService } from './pessoas/services/pessoas.service';
 import { DiretivasModule } from './geral/diretivas/diretivas.module';
 import { FormsModule } from '@angular/forms';
+import { FilterSearchPipe } from './geral/pipes/filter-search.pipe';
+import { CpfPipe } from './geral/pipes/cpf.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { FormsModule } from '@angular/forms';
     PessoasListComponent,
     PessoasNewComponent,
     PessoasEditComponent,
+    FilterSearchPipe,
+    CpfPipe,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,9 @@
     Pessoas
   </div>
   <div class="card-body">
-    <h5 class="card-title">Nome: {{ nomeFuncionaria }}</h5>
+    <h5 class="card-title">Nome: {{ nomeFuncionaria | lowercase }}</h5>
+    <h5 class="card-title">Hoje: {{ hoje | date | uppercase }}</h5>
+    <h5 class="card-title">Preço: {{ preco | currency:"BRL" }}</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
   </div>
   <div class="table-responsive-sm">
@@ -17,6 +19,7 @@
           <th>E-mail</th>
           <th>Endereço</th>
           <th>Profissão</th>
+          <th>CPF</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -29,6 +32,7 @@
           <td><span>{{ itemPessoa.email }}</span></td>
           <td><span>{{ itemPessoa.endereco }}</span></td>
           <td><span>{{ itemPessoa.profissao }}</span></td>
+          <td><span>{{ itemPessoa.cpf | cpf }}</span></td>
           <td>
             <button type="button" class="btn btn-primary" (click)="editPessoa()"> Editar </button>
             <button type="button" class="btn btn-warning" (click)="deletePessoa(itemPessoa)"> Deletar </button>
@@ -40,5 +44,17 @@
   </div>
   <div class="card text-center">
     <button type="button" class="btn btn-success" (click)="newPessoa()"> Adicionar </button>
+  </div>
+  <div>
+    <h4> Usando Pipes </h4>
+
+    <input type="text" [(ngModel)]="search">
+    <ul>
+      <li *ngFor="let item of items | filter : search">
+          {{ item }}
+      </li>
+    </ul>
+
+    <h3 *ngIf="(items | filter : search).length == 0"> Não existem dados para {{search}} </h3>
   </div>
 </div>

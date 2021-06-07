@@ -8,7 +8,8 @@
       "email": "mauro.souza@gmail.com",
       "endereco": "Rua A, casa 1. Bairro B. Salvador, Bahia",
       "profissao": "Desenvolvedor .Net",
-      "estadoCivil": "solteiro"
+      "estadoCivil": "solteiro",
+      "cpf": "12590698730"
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "email": "luiz.silva@uol.com.br",
       "endereco": "Rua B, casa 2. Bairro C. Salvador, Bahia",
       "profissao": "Gerente",
-      "estadoCivil": "casado"
+      "estadoCivil": "casado",
+      "cpf": "12590778730"
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "email": "maria.genzerico@bol.com.br",
       "endereco": "Rua C, casa 3. Bairro D. Salvador, Bahia",
       "profissao": "Gestor",
-      "estadoCivil": "casada"
+      "estadoCivil": "casada",
+      "cpf": "12599998730"
     }
   ]
 }
