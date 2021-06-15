@@ -51,7 +51,7 @@ export class PessoasService {
   }
 
   deletePessoa(id: number){
-    return this.httpClient.delete<Pessoas>( this.url + '/' + id, this.httpOptions )
+    this.httpClient.delete<Pessoas>( this.url + '/' + id, this.httpOptions )
       .pipe(
         retry(1),
         catchError(this.handleError)

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Pessoas } from 'src/app/geral/interface/pessoas';
 import { PessoasService } from '../services/pessoas.service';
 
@@ -21,18 +21,11 @@ export class PessoasListComponent implements OnInit {
 
   constructor(private router: Router,
     private pessoasService: PessoasService,
-    private modalService: NgbModal,
-    private activatedRoute: ActivatedRoute) { }
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
-
-    this.activatedRoute.data.subscribe(data => {
-      console.log('Resolvendo dados pessoas-list');
-
-    })
-
-    this.pessoasService.getPessoas().subscribe((data: {})=>{
-      this.pessoas = data as Pessoas[];
+    this.pessoasService.getPessoas().subscribe((pessoas: Pessoas[])=>{
+      this.pessoas = pessoas;
     });
   }
 
@@ -44,21 +37,6 @@ export class PessoasListComponent implements OnInit {
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
-      this.emitPessoa(value);
-  }
-
-  emitPessoa(value: Pessoas){
-    this.editPessoa = value;
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
   }
 
   deletePessoa(pessoa: Pessoas){

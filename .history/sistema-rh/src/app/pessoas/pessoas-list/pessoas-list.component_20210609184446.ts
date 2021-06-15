@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Pessoas } from 'src/app/geral/interface/pessoas';
 import { PessoasService } from '../services/pessoas.service';
@@ -21,18 +21,11 @@ export class PessoasListComponent implements OnInit {
 
   constructor(private router: Router,
     private pessoasService: PessoasService,
-    private modalService: NgbModal,
-    private activatedRoute: ActivatedRoute) { }
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
-
-    this.activatedRoute.data.subscribe(data => {
-      console.log('Resolvendo dados pessoas-list');
-
-    })
-
-    this.pessoasService.getPessoas().subscribe((data: {})=>{
-      this.pessoas = data as Pessoas[];
+    this.pessoasService.getPessoas().subscribe((pessoas: Pessoas[])=>{
+      this.pessoas = pessoas;
     });
   }
 

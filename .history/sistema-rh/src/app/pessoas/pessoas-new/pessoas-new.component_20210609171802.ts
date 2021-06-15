@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Pessoas } from 'src/app/geral/interface/pessoas';
-import { PessoasService } from '../services/pessoas.service';
 
 @Component({
   selector: 'app-pessoas-new',
@@ -12,15 +10,9 @@ export class PessoasNewComponent implements OnInit {
 
   pessoa = {} as Pessoas;
 
-  constructor(private router: Router, private pessoasService: PessoasService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  savePessoa(pessoa: Pessoas){
-    this.pessoa = {...pessoa};
-    this.pessoasService.postPessoa(this.pessoa).subscribe(() => {
-      this.router.navigate(['']);
-    });
-  }
 }

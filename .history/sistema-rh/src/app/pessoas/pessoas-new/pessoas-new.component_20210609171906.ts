@@ -17,10 +17,4 @@ export class PessoasNewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  savePessoa(pessoa: Pessoas){
-    this.pessoa = {...pessoa};
-    this.pessoasService.postPessoa(this.pessoa).subscribe(() => {
-      this.router.navigate(['']);
-    });
-  }
 }

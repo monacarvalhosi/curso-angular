@@ -12,6 +12,12 @@
     name="telefone">
   </div>
   <div class="form-group">
+    <label for="telefone"> Telefone</label>
+    <input type="text" class="form-control" id="telefone"
+    #telefone="ngModel" [(ngModel)]="editPessoa.telefone"
+    name="telefone">
+  </div>
+  <div class="form-group">
     <label for="estadoCivil">Estado Civil</label>
     <select class="form-control" id="estadoCivil"
     #estadoCivil="ngModel" [(ngModel)]="editPessoa.estadoCivil"

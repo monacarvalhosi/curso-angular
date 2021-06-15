@@ -13,7 +13,6 @@ import { DiretivasModule } from './geral/diretivas/diretivas.module';
 import { FormsModule } from '@angular/forms';
 import { FilterSearchPipe } from './geral/pipes/filter-search.pipe';
 import { CpfPipe } from './geral/pipes/cpf.pipe';
-import { RotaGuard } from './guards/rota.guard';
 
 @NgModule({
   declarations: [
@@ -32,10 +31,7 @@ import { RotaGuard } from './guards/rota.guard';
     FormsModule,
     NgbModule
   ],
-  providers: [
-    PessoasService,
-    RotaGuard
-  ],
+  providers: [PessoasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

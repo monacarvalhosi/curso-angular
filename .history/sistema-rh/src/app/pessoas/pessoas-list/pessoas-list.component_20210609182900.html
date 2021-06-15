@@ -34,12 +34,8 @@
           <td><span>{{ itemPessoa.profissao }}</span></td>
           <td><span>{{ itemPessoa.cpf | cpf }}</span></td>
           <td>
-            <button type="button" class="btn btn-primary" (click)="open(mymodal,itemPessoa)">
-              <img width="15" height="15" src="../../../assets/images/editar.png">
-            </button>
-            <button type="button" style="margin: 1px;" class="btn btn-warning" (click)="deletePessoa(itemPessoa)">
-              <img width="15" height="15" src="../../../assets/images/lixo.png" >
-            </button>
+            <button type="button" class="btn btn-primary" (click)="open(mymodal,itemPessoa)"> Editar </button>
+            <button type="button" class="btn btn-warning" (click)="deletePessoa(itemPessoa)"> Deletar </button>
           </td>
         </tr>
       </tbody>
@@ -62,13 +58,3 @@
     <h3 *ngIf="(items | filter : search).length == 0"> Não existem dados para {{search}} </h3>
   </div>
 </div>
-
-<ng-template #mymodal let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title" id="TituloModalCentralizado">Editar Pessoa</h5>
-    <button type="button" class="btn btn-danger" aria-label="fechar" (click)="modal.dismiss('Cross click')">x</button>
-  </div>
-  <div class="modal-body">
-    <app-pessoas-edit [editPessoa]="editPessoa"></app-pessoas-edit>
-  </div>
-</ng-template>

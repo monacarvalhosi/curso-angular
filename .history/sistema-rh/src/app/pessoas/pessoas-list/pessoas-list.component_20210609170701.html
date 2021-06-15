@@ -3,9 +3,9 @@
     Pessoas
   </div>
   <div class="card-body">
-    <h5 class="card-title">Nome: {{ nomeFuncionaria }}</h5>
-    <h5 class="card-title" hidden>Hoje: {{ hoje | date | uppercase }}</h5>
-    <h5 class="card-title" hidden>Preço: {{ preco | currency:"BRL" }}</h5>
+    <h5 class="card-title">Nome: {{ nomeFuncionaria | lowercase }}</h5>
+    <h5 class="card-title">Hoje: {{ hoje | date | uppercase }}</h5>
+    <h5 class="card-title">Preço: {{ preco | currency:"BRL" }}</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
   </div>
   <div class="table-responsive-sm">
@@ -34,22 +34,18 @@
           <td><span>{{ itemPessoa.profissao }}</span></td>
           <td><span>{{ itemPessoa.cpf | cpf }}</span></td>
           <td>
-            <button type="button" class="btn btn-primary" (click)="open(mymodal,itemPessoa)">
-              <img width="15" height="15" src="../../../assets/images/editar.png">
-            </button>
-            <button type="button" style="margin: 1px;" class="btn btn-warning" (click)="deletePessoa(itemPessoa)">
-              <img width="15" height="15" src="../../../assets/images/lixo.png" >
-            </button>
+            <button type="button" class="btn btn-primary" (click)="editPessoa()"> Editar </button>
+            <button type="button" class="btn btn-warning" (click)="deletePessoa(itemPessoa)"> Deletar </button>
           </td>
         </tr>
       </tbody>
     </table>
 
   </div>
-  <div class="card text-center" hidden>
+  <div class="card text-center">
     <button type="button" class="btn btn-success" (click)="newPessoa()"> Adicionar </button>
   </div>
-  <div hidden>
+  <div>
     <h4> Usando Pipes </h4>
 
     <input type="text" [(ngModel)]="search">
@@ -62,13 +58,3 @@
     <h3 *ngIf="(items | filter : search).length == 0"> Não existem dados para {{search}} </h3>
   </div>
 </div>
-
-<ng-template #mymodal let-modal>
-  <div class="modal-header">
-    <h5 class="modal-title" id="TituloModalCentralizado">Editar Pessoa</h5>
-    <button type="button" class="btn btn-danger" aria-label="fechar" (click)="modal.dismiss('Cross click')">x</button>
-  </div>
-  <div class="modal-body">
-    <app-pessoas-edit [editPessoa]="editPessoa"></app-pessoas-edit>
-  </div>
-</ng-template>
